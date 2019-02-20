@@ -43,6 +43,9 @@ class Market
       if vendor.check_stock(item_to_sell) >= item_quantity_to_sell
         vendor.inventory[item_to_sell] -= item_quantity_to_sell
         return true
+      else
+        item_quantity_to_sell -= vendor.inventory[item_to_sell]
+        vendor.inventory[item_to_sell] = 0
       end
     end
 
