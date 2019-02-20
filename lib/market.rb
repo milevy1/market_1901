@@ -39,7 +39,7 @@ class Market
     return false if total_inventory_is_less_than_quantity_to_sell?(item_to_sell, item_quantity_to_sell)
 
     vendors.each do |vendor|
-      if vendor.check_stock(item_to_sell) >= item_quantity_to_sell
+      if vendor_has_enough_quantity?(vendor, item_to_sell, item_quantity_to_sell)
         vendor.inventory[item_to_sell] -= item_quantity_to_sell
         return true
       else
@@ -52,6 +52,10 @@ class Market
 
   def total_inventory_is_less_than_quantity_to_sell?(item_to_sell, item_quantity_to_sell)
     total_inventory[item_to_sell] < item_quantity_to_sell
+  end
+
+  def vendor_has_enough_quantity?(vendor, item_to_sell, item_quantity_to_sell)
+    vendor.check_stock(item_to_sell) >= item_quantity_to_sell
   end
 
 end
