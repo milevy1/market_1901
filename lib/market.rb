@@ -19,4 +19,11 @@ class Market
     vendors.select { |vendor| vendor.check_stock(item) > 0 }
   end
 
+  def sorted_item_list
+    vendors.map { |vendor| vendor.inventory.keys }
+      .flatten
+      .uniq
+      .sort
+  end
+
 end
