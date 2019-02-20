@@ -26,4 +26,13 @@ class Market
       .sort
   end
 
+  def total_inventory
+    vendors.inject(Hash.new(0)) do |total_inventory_hash, vendor|
+      vendor.inventory.each do |item, item_amount|
+        total_inventory_hash[item] += item_amount
+      end
+      total_inventory_hash
+    end
+  end
+
 end
