@@ -84,4 +84,12 @@ class MarketTest < Minitest::Test
     assert_equal expected, @market.total_inventory
   end
 
+  def test_sell_items
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
+
+    assert_equal false, @market.sell("Peaches", 200)
+  end
+
 end
