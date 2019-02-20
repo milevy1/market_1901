@@ -44,7 +44,7 @@ class Market
         return true
       else
         item_quantity_to_sell -= vendor.inventory[item_to_sell]
-        vendor.inventory[item_to_sell] = 0
+        set_vendor_inventory_of_item_to_zero(vendor, item_to_sell)
       end
     end
 
@@ -60,6 +60,10 @@ class Market
 
   def remove_items_from_vendor(vendor, item_to_sell, item_quantity_to_sell)
     vendor.inventory[item_to_sell] -= item_quantity_to_sell
+  end
+
+  def set_vendor_inventory_of_item_to_zero(vendor, item_to_sell)
+    vendor.inventory[item_to_sell] = 0
   end
 
 end
