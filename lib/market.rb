@@ -37,9 +37,8 @@ class Market
 
   def sell(item_to_sell, item_quantity_to_sell)
     # Check if total_inventory has enough of item
-    if total_inventory[item_to_sell] < item_quantity_to_sell
-      return false
-    end
+    return false if total_inventory[item_to_sell] < item_quantity_to_sell
+
 
   end
 
