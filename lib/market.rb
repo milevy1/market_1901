@@ -39,6 +39,12 @@ class Market
     # Check if total_inventory has enough of item
     return false if total_inventory[item_to_sell] < item_quantity_to_sell
 
+    vendors.each do |vendor|
+      if vendor.check_stock(item_to_sell) >= item_quantity_to_sell
+        vendor.inventory[item_to_sell] -= item_quantity_to_sell
+        return true
+      end
+    end
 
   end
 
