@@ -32,4 +32,12 @@ class MarketTest < Minitest::Test
     assert_equal [], @market.vendors
   end
 
+  def test_it_can_add_vendors
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
+
+    assert_equal [@vendor_1, @vendor_2, @vendor_3], @market.vendors
+  end
+
 end
