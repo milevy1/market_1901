@@ -30,4 +30,11 @@ class VendorTest < Minitest::Test
     assert_equal 30, @vendor.check_stock("Peaches")
   end
 
+  def test_stocking_more_than_once
+    @vendor.stock("Peaches", 30)
+    @vendor.stock("Peaches", 25)
+
+    assert_equal 55, @vendor.check_stock("Peaches")
+  end
+
 end
