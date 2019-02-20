@@ -90,6 +90,7 @@ class MarketTest < Minitest::Test
     @market.add_vendor(@vendor_3)
 
     assert_equal false, @market.sell("Peaches", 200)
+    assert_equal false, @market.sell("Onions", 1)
   end
 
 end
